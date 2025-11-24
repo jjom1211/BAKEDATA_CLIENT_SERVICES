@@ -1,0 +1,519 @@
+/* Estilos generales del cuerpo del documento */
+body {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf0;
+}
+
+/* Barra superior con logo, título e icono derecho */
+.top-bar {
+    background-color: #b35340;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Posicionamiento del logo en la barra superior */
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+}
+
+/* Posicionamiento del icono derecho en la barra superior */
+.icon-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/* Contenedor principal del contenido */
+.container {
+    text-align: justify;
+    padding: 50px;
+}
+
+/* Estilo del título principal de la página */
+.title-gray {
+    color: #847c84;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Mensaje informativo */
+.info-message {
+    text-align: center;
+    background-color: #f8f0e5;
+    border: 1px solid #d8a394;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #b35340;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Texto para seleccionar productos */
+.select-product-text {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #5a5a5a;
+    margin: 30px 0 20px 0;
+}
+
+/* SECCIÓN DE CATEGORÍAS (tomada de bakedata_c.css) */
+
+/* Sección de categorías */
+.categories-section {
+    padding: 20px 0;
+    background-color: #fffaf0;
+}
+
+.categories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.categories-title {
+    text-align: center;
+    color: #b35340;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Grid de categorías */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de categoría */
+.category-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Indicador de que es clickeable */
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #b35340;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover::after {
+    opacity: 1;
+}
+
+/* Imagen de la categoría */
+.category-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-img {
+    transform: scale(1.1);
+}
+
+/* Contenido de la categoría */
+.category-content {
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.category-name {
+    color: #b35340;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-name {
+    color: #d8a394;
+}
+
+.category-description {
+    color: #5a5a5a;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* SECCIÓN DE COMENTARIOS ACTUALIZADA */
+
+.comments-section {
+    margin: 50px 0 30px 0;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #d8a394;
+}
+
+.comments-title {
+    color: #b35340;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comments-subtitle {
+    color: #5a5a5a;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.comments-form {
+    margin-bottom: 25px;
+}
+
+.comments-textarea {
+    width: 100%;
+    min-height: 150px; /* Más grande que antes */
+    padding: 20px; /* Más padding */
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.comments-textarea:focus {
+    outline: none;
+    border-color: #d8a394;
+    box-shadow: 0 0 0 3px rgba(216, 163, 148, 0.2);
+    background-color: white;
+}
+
+.comments-textarea::placeholder {
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #847c84;
+    margin-top: 8px;
+}
+
+.char-counter span {
+    font-weight: bold;
+    color: #b35340;
+}
+
+/* BOTÓN DE ENVIAR ACTUALIZADO */
+
+.submit-section {
+    text-align: center;
+    margin: 40px 0 20px 0;
+}
+
+.submit-order-btn {
+    background: linear-gradient(135deg, #b35340 0%, #d8a394 100%);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(179, 83, 64, 0.3);
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-order-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(179, 83, 64, 0.4);
+    background: linear-gradient(135deg, #a04634 0%, #c99585 100%);
+}
+
+.submit-order-btn:active {
+    transform: translateY(-1px);
+}
+
+.submit-order-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(179, 83, 64, 0.3);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .categories-title {
+        font-size: 2rem;
+    }
+    
+    .comments-section {
+        padding: 20px;
+        margin: 30px 0;
+    }
+    
+    .comments-title {
+        font-size: 1.5rem;
+    }
+    
+    .submit-order-btn {
+        padding: 15px 40px;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-section {
+        padding: 40px 15px;
+    }
+    
+    .categories-title {
+        font-size: 1.8rem;
+    }
+    
+    .category-content {
+        padding: 20px;
+    }
+    
+    .category-name {
+        font-size: 1.3rem;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+    
+    .info-message {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .select-product-text {
+        font-size: 18px;
+    }
+    
+    .comments-section {
+        padding: 15px;
+    }
+    
+    .comments-textarea {
+        min-height: 120px;
+        padding: 15px;
+    }
+    
+    .submit-order-btn {
+        padding: 14px 35px;
+        font-size: 1.1rem;
+    }
+}
+
+
+/* Botón flotante del carrito */
+.carrito-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.btn-carrito-flotante {
+    background: linear-gradient(135deg, #b35340, #8f2f26);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(179, 83, 64, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+}
+
+.btn-carrito-flotante:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(179, 83, 64, 0.6);
+}
+
+.btn-carrito-flotante:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Estilos para el SVG */
+.carrito-svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+    margin-bottom: 2px;
+}
+
+.btn-carrito-flotante .carrito-texto {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.contador-flotante {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+}
+
+/* Animación de pulso para el contador */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+    }
+}
+
+/* Efecto de rebote al agregar productos */
+.btn-carrito-flotante.agregando {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carrito-flotante {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .btn-carrito-flotante {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .carrito-svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contador-flotante {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}
+
+/* Contenedor para centrar el botón */
+.container-btn-carrito {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0; /* Espacio arriba y abajo */
+    width: 100%;
+}
+
+/* Estilo del botón */
+.btn-ver-carrito {
+    background-color: #4f4f4f; /* Mismo color que tu Navbar */
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px; /* Bordes muy redondeados (tipo pastilla) */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre icono y texto */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Efecto Hover */
+.btn-ver-carrito:hover {
+    background-color: #3d3d3d;
+    transform: translateY(-3px); /* Se eleva un poco */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Ajuste del icono SVG dentro del botón */
+.btn-ver-carrito svg {
+    width: 22px;
+    height: 22px;
+}

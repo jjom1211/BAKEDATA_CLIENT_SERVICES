@@ -1,0 +1,572 @@
+/* 
+ * Estilos principales para la página de inicio
+ * Se mantienen exactamente igual que en el original
+ */
+
+/* Estilos generales */
+body {
+    font-family: 'Quicksand', sans-serif; /* Fuente de la página */
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf0; /* Color de fondo */
+}
+
+/* Barra superior */
+.top-bar {
+    background-color: #b35340; /* Color de fondo de la barra superior */
+    color: white; /* Color del texto */
+    padding: 15px;
+    text-align: center; /* Alineación del texto */
+    font-size: 24px;
+    font-weight: bold;
+    position: relative; /* Permite posicionar el logo e icono de manera absoluta */
+}
+
+/* Logo */
+.logo {
+    position: absolute; /* Posición absoluta para colocar el logo */
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+}
+
+/* Icono derecho */
+.icon-right {
+    position: absolute; /* Posición absoluta para colocar el icono */
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+}
+/* SECCIÓN DE BIENVENIDA */
+
+/* Sección de bienvenida */
+.welcome-section {
+    background: linear-gradient(135deg, #f5e9dc 0%, #fffaf0 100%);
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+/* Contenedor del contenido de bienvenida */
+.welcome-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Texto de bienvenida */
+.welcome-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* Título principal de bienvenida */
+.welcome-title {
+    font-size: 3.5rem;
+    color: #b35340;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Resaltado de la palabra "sabor" */
+.welcome-title .highlight {
+    color: #d8a394;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Subtítulo de bienvenida */
+.welcome-subtitle {
+    font-size: 1.5rem;
+    color: #5a5a5a;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Contenedor de la imagen */
+.welcome-image {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen animada */
+.animated-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de animación flotante */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Efecto hover en la imagen */
+.animated-image:hover {
+    transform: scale(1.03);
+    animation-play-state: paused;
+}
+
+/* NUEVA SECCIÓN DE CATEGORÍAS */
+
+/* Sección de categorías */
+.categories-section {
+    padding: 60px 20px;
+    background-color: #fffaf0;
+}
+
+.categories-title {
+    text-align: center;
+    color: #b35340;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+/* Grid de categorías */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de categoría */
+.category-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Indicador de que es clickeable */
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #b35340;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover::after {
+    opacity: 1;
+}
+
+/* Imagen de la categoría */
+.category-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.category-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-img {
+    transform: scale(1.1);
+}
+
+/* Contenido de la categoría */
+.category-content {
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.category-name {
+    color: #b35340;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.category-card:hover .category-name {
+    color: #d8a394;
+}
+
+.category-description {
+    color: #5a5a5a;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    text-align: justify; /* Justifica el texto */
+    padding: 50px; /* Espaciado interno */
+}
+
+/* Títulos */
+.title-gray {
+    color: #847c84; /* Color del título */
+    font-size: 28px;
+    font-weight: bold; 
+}
+
+.title-black {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Sección de productos */
+.product-section {
+    display: flex; /* Usamos flexbox para organizar los productos */
+    align-items: center;
+    justify-content: space-between; /* Espacio entre el título y los botones */
+    margin-top: 20px;
+}
+
+.left-section {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.right-section {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+/* Botones */
+.view-all-btn {
+    background-color: #d8a394; /* Color de fondo del botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer; /* Cursor de puntero */
+}
+
+/* Dropdown de búsqueda */
+.search-dropdown {
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px;
+    font-family: 'Quicksand', sans-serif;
+    color: #b35340; /* Color de texto */
+}
+
+/* Contenedor del carrusel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Ocultar el desbordamiento */
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+
+/* Carrusel */
+.carousel {
+    display: flex; /* Usar flexbox para mostrar los elementos en fila */
+    transition: transform 0.5s ease-in-out; /* Efecto de transición al mover */
+    padding: 10px 0;
+}
+
+/* Items del carrusel */
+.carousel-item {
+    text-align: center;
+    min-width: 220px;
+    flex: 0 0 auto; /* No cambiar el tamaño de los items */
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s ease; /* Efecto al pasar el cursor */
+}
+
+/* Efecto hover en items */
+.carousel-item:hover {
+    transform: scale(1.03); /* Aumenta el tamaño del item */
+}
+
+/* Imágenes en el carrusel */
+.carousel-item img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Nombre del producto */
+.product-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Precio del producto */
+.product-price {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Flechas de navegación */
+.arrow {
+    background: rgba(179, 83, 64, 0.7); /* Color de fondo de las flechas */
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%; /* Alineación vertical */
+    transform: translateY(-50%); /* Centrar verticalmente */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Flecha circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1; /* Asegura que las flechas estén encima del contenido */
+}
+
+/* Efecto hover en flechas */
+.arrow:hover {
+    background: rgba(179, 83, 64, 0.9); /* Color de fondo al hacer hover */
+}
+
+/* Flecha izquierda */
+.left-arrow {
+    left: 10px; 
+}
+
+/* Flecha derecha */
+.right-arrow {
+    right: 10px;
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+    display: none !important; /* Fuerza a ocultar el elemento */
+}
+
+/* Título de subcategorías */
+.subcategory-title {
+    color: #b35340; /* Color de texto */
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #d8a394; /* Línea debajo del título */
+    padding-bottom: 5px;
+}
+
+/* Estilos responsivos para la sección de bienvenida */
+@media (max-width: 768px) {
+    .welcome-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .welcome-image {
+        max-width: 100%;
+    }
+    
+    /* Responsivo para categorías */
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .categories-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: 40px 15px;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+    
+    .categories-section {
+        padding: 40px 15px;
+    }
+    
+    .categories-title {
+        font-size: 1.8rem;
+    }
+    
+    .category-content {
+        padding: 20px;
+    }
+    
+    .category-name {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* Botón flotante del carrito */
+.carrito-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.btn-carrito-flotante {
+    background: linear-gradient(135deg, #b35340, #8f2f26);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(179, 83, 64, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
+    position: relative;
+}
+
+.btn-carrito-flotante:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(179, 83, 64, 0.6);
+}
+
+.btn-carrito-flotante:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Estilos para el SVG */
+.carrito-svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+    margin-bottom: 2px;
+}
+
+.btn-carrito-flotante .carrito-texto {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.contador-flotante {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    animation: pulse 2s infinite;
+}
+
+/* Animación de pulso para el contador */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+    }
+}
+
+/* Efecto de rebote al agregar productos */
+.btn-carrito-flotante.agregando {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .carrito-flotante {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .btn-carrito-flotante {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .carrito-svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contador-flotante {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+}

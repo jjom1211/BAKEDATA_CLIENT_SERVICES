@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Pedido - Bake Data</title>
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <link rel="stylesheet" href="/CSS/usu_bakedata.css">
+    <link rel="stylesheet" href="/CSS/usu_detalle_pedido.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="../JS/usu_detalle_pedido.js"></script>
+</head>
+<body>
+    
+    <div class="top-bar">
+        <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a>
+        <a href="/" style="text-decoration:none; color:white;">
+            <span style="font-weight:bold; font-size:24px;">Bake Data</span>
+        </a>
+        <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right">
+    </div>
+
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+        <a href="/pedidos_usuario" class="nav-link">Mis pedidos</a>
+            {% endif %}
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" 
+                onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+<div class="container">
+        <div class="order-card" id="loadingState">
+            <div style="padding: 50px; text-align: center;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: #b35340;"></i>
+                <p>Cargando detalles del pedido...</p>
+            </div>
+        </div>
+
+        <div class="order-card" id="orderContent" style="display: none;">
+            
+            <div class="order-header">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h1 class="order-title">¡Pedido Confirmado!</h1>
+                <p class="order-subtitle">Gracias por tu compra. Aquí tienes los detalles.</p>
+            </div>
+
+            <div class="order-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <label>Número de Pedido</label>
+                        <span id="orderId">#000</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Fecha de Solicitud</label> <span id="orderDate">--/--/----</span>
+                    </div>
+                    <div class="info-item">
+                        <label style="color: #b35340;">Fecha de Recogida</label>
+                        <span id="orderPickup" style="font-weight: 700;">--/--/---- --:--</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Estado</label>
+                        <span id="orderStatus" style="color: #e67e22;">Pendiente</span>
+                    </div>
+                    <div class="info-item">
+                        <label>Sucursal de Recogida</label>
+                        <span id="orderBranch">Cargando...</span>
+                    </div>
+                </div>
+
+                <table class="products-list">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th style="text-align: center;">Cant.</th>
+                            <th style="text-align: right;">Precio</th>
+                            <th style="text-align: right;">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        </tbody>
+                </table>
+
+                <div class="total-section">
+                    <span class="total-label">Total a pagar</span>
+                    <span class="total-amount" id="orderTotal">$0.00</span>
+                </div>
+            </div> <div class="actions-footer">
+                <a href="/realizar_pedido" class="btn-base btn-primary">
+                    <i class="fas fa-shopping-basket"></i> Realizar otro pedido
+                </a>
+                
+                <a href="/" class="btn-base btn-secondary">
+                    <i class="fas fa-home"></i> Ir al Inicio
+                </a>
+            </div> </div> </div> </body>
+</html>

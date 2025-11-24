@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración general, título, icono y estilos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realizar Pedido - Bake Data</title>
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/usu_realizar_pedido.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+</head>
+
+<body>
+
+    <!-- Barra superior con logos -->
+    <div class="top-bar">
+        <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a>
+        <a href="/" style="text-decoration:none; color:white;">
+            <span style="font-weight:bold; font-size:24px;">Bake Data</span>
+        </a>
+        <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right">
+    </div>
+
+        <!-- Barra de navegación -->
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+        <a href="/pedidos_usuario" class="nav-link">Mis pedidos</a>
+            {% endif %}
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" 
+                onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h1 class="title-gray">Realiza un pedido</h1>
+
+        <!-- Mensaje informativo -->
+        <div class="info-message">
+            Grace realiza pedidos de Pickup con anticipación de mínimo un día. El pago es en tienda NO en línea.
+        </div>
+        
+        <div class="container-btn-carrito">
+            <a href="/carrito" class="btn-ver-carrito">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                Ver Carrito
+            </a>
+        </div>
+        <!-- Instrucción para seleccionar productos -->
+        <div class="select-product-text">
+            Seleccione algún producto:
+        </div>
+
+        <!-- Sección de categorías -->
+        <div class="categories-section">
+            <div class="categories-container">
+                <div class="categories-grid">
+                    <div class="category-card" onclick="navigateToCategory('panes')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/panes.jpg" alt="Panes" class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Panes</h3>
+                            <p class="category-description">Conoce nuestra variedad de panes.</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('galletas')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/galletas.png" alt="Galletas" class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Galletas</h3>
+                            <p class="category-description">Deliciosa variedad de galletas y polvorones.</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('gelatinas')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/gelatinas.JPG" alt="Gelatinas y Flanes"
+                                class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Gelatinas y flanes</h3>
+                            <p class="category-description">Conoce nuestra variedad de gelatinas y deliciosos flanes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('temporada')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/panestemporada.jpg" alt="Pan de Temporada"
+                                class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Pan de temporada</h3>
+                            <p class="category-description">Especialidades de Semana Santa, Pan de Muerto, Roscas de
+                                Reyes.</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('pasteles')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/pasteles.jpg" alt="Pasteles" class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Pasteles</h3>
+                            <p class="category-description">Los más finos y deliciosos pasteles, tres leches, opera,
+                                tiramisú, etc.</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('postres')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/postres.jpg" alt="Postres" class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Postres</h3>
+                            <p class="category-description">Los postres más deliciosos.</p>
+                        </div>
+                    </div>
+
+                    <div class="category-card" onclick="navigateToCategory('pizzas')">
+                        <div class="category-image">
+                            <img src="/static/img/princ_panes_cat/pizzas.png" alt="Pizzas" class="category-img">
+                        </div>
+                        <div class="category-content">
+                            <h3 class="category-name">Pizzas</h3>
+                            <p class="category-description">Nuestra variedad de pizzas artesanales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="carrito-flotante" id="carritoFlotante">
+        <button class="btn-carrito-flotante" id="btnCarritoFlotante">
+            <svg class="carrito-svg" viewBox="0 0 902.86 902.86">
+                <path
+                    d="M671.504,577.829l110.485-432.609H902.86v-68H729.174L703.128,179.2L0,178.697l74.753,399.129h596.751V577.829z M685.766,247.188l-67.077,262.64H131.199L81.928,246.756L685.766,247.188z">
+                </path>
+                <path
+                    d="M578.418,825.641c59.961,0,108.743-48.783,108.743-108.744s-48.782-108.742-108.743-108.742H168.717 c-59.961,0-108.744,48.781-108.744,108.742s48.782,108.744,108.744,108.744c59.962,0,108.743-48.783,108.743-108.744 c0-14.4-2.821-28.152-7.927-40.742h208.069c-5.107,12.59-7.928,26.342-7.928,40.742 C469.675,776.858,518.457,825.641,578.418,825.641z M209.46,716.897c0,22.467-18.277,40.744-40.743,40.744 c-22.466,0-40.744-18.277-40.744-40.744c0-22.465,18.277-40.742,40.744-40.742C191.183,676.155,209.46,694.432,209.46,716.897z M619.162,716.897c0,22.467-18.277,40.744-40.743,40.744s-40.743-18.277-40.743-40.744c0-22.465,18.277-40.742,40.743-40.742 S619.162,694.432,619.162,716.897z">
+                </path>
+            </svg>
+            <span class="contador-flotante" id="contadorFlotante">0</span>
+        </button>
+    </div>
+    <!-- Scripts JS -->
+    <script src="/JS/usu_carrito_boton.js"></script>
+    <script src="/JS/usu_realizar_pedido.js"></script>
+
+
+</body>
+
+</html>

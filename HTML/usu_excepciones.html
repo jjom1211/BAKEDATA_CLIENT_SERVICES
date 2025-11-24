@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsive -->
+    <title>Error</title> <!-- Título de la pestaña -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Fuente Quicksand desde Google Fonts -->
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link rel="stylesheet" href="/CSS/usu_excepciones.css"> <!-- Enlace al CSS específico para la página de errores -->
+</head>
+<body>
+    
+<div class="top-bar"> <!-- Barra superior con logo, nombre y icono adicional -->
+    <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a> <!-- Logo Bake Data clicable al inicio -->
+    <a href="/" style="text-decoration:none; color:white;">
+        <span style="font-weight:bold; font-size:24px;">Bake Data</span> <!-- Nombre de la marca en la barra -->
+    </a>
+    <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right"> <!-- Icono adicional a la derecha -->
+</div>
+
+<div class="nav-bar"> <!-- Barra de navegación -->
+    <a href="/realizar_pedido">Realizar Pedido</a> <!-- Enlace al pedido (sin redirección por ahora) -->
+    <a href="/sucursales">Sucursales</a> <!-- Enlace a la página de sucursales -->
+    <a href="/conocenos">Conócenos</a> <!-- Enlace a la página de Conócenos -->
+</div>
+
+
+    <hr class="separator-line"> <!-- Línea decorativa gruesa -->
+    <hr class="gray-line"> <!-- Línea decorativa delgada -->
+
+    <div class="error-container"> <!-- Contenedor central del mensaje de error -->
+        <img src="/static/img/error.png" alt="Error" class="error-image"> <!-- Imagen representativa del error -->
+        <h1 class="error-title">Lo sentimos, ha ocurrido un error</h1> <!-- Título principal del error -->
+        <p class="error-message">Estamos trabajando para solucionarlo. Por favor, intenta nuevamente más tarde.</p> <!-- Mensaje descriptivo del error -->
+    </div>
+    <script src="script-errores.js"></script> <!-- Enlace al script JS específico para la página de errores -->
+</body>
+</html>

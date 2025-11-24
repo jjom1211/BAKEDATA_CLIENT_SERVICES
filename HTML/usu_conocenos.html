@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace la página responsive -->
+    <title>Conócenos - Bake Data</title> <!-- Título que aparece en la pestaña del navegador -->
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png"> <!-- Ícono de la pestaña -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuente Quicksand desde Google Fonts -->
+    <link rel="stylesheet" href="/CSS/usu_conocenos.css"> <!-- Enlace al archivo CSS principal de la página -->
+    <link rel="stylesheet" href="/CSS/navbar.css">
+</head>
+<body>
+    
+<div class="top-bar"> <!-- Barra superior con logo, nombre y icono adicional -->
+    <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a> <!-- Logo Bake Data enlazado al inicio -->
+    <a href="/" style="text-decoration:none; color:white;">
+        <span style="font-weight:bold; font-size:24px;">Bake Data</span> <!-- Nombre de la marca en la barra -->
+    </a>
+    <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right"> <!-- Icono extra a la derecha -->
+</div>
+
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+        <a href="/pedidos_usuario" class="nav-link">Mis pedidos</a>
+            {% endif %}
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" 
+                onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+    
+    
+    
+    <div class="split-container"> <!-- Contenedor principal dividido en imagen y texto -->
+        <div class="image-side"> <!-- Sección izquierda con la imagen -->
+            <img src="/static/img/publicidad/Grace_El_mejor_sabor.png" alt="Panadería artesanal"> <!-- Imagen representativa -->
+        </div>
+        
+        <div class="text-side"> <!-- Sección derecha con título, párrafo y contactos -->
+            <h1>Conócenos</h1> <!-- Título principal de la sección -->
+            <p> <!-- Párrafo descriptivo sobre la panadería -->
+                Somos un espacio donde el arte de la panadería y la repostería se fusionan para brindarte productos frescos, 
+                deliciosos y elaborados con los mejores ingredientes. Ofrecemos una amplia variedad de panes artesanales, 
+                pasteles, galletas y postres que deleitarán tu paladar. Ya sea que busques un desayuno perfecto, un postre 
+                especial o pan recién horneado para compartir, aquí encontrarás calidad y sabor inigualables.
+            </p>
+            
+            <div class="contact-section"> <!-- Sección de contacto -->
+                <div class="contact-title">CONTÁCTANOS</div> <!-- Título de contacto -->
+                <a href="tel:+524425991147" class="phone-number">+52 442 599 1147</a> <!-- Número telefónico clicable -->
+            </div>
+            
+            <div class="whatsapp-link"> <!-- Sección para contacto vía WhatsApp -->
+                <a href="https://wa.me/524425991147" target="_blank"> <!-- Enlace directo a WhatsApp -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> <!-- Icono de WhatsApp -->
+                    También por WhatsApp
+                </a>
+            </div>
+            <div class="facebook-link">
+                <a href="https://www.facebook.com/profile.php?id=100075933923077" target="_blank"> <!-- Enlace directo a Facebook -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"> <!-- Icono de Facebook -->
+                También por Facebook
+    </a>
+</div>
+        </div>
+    </div>
+    <script src="script-conocenos.js"></script> <!-- Enlace al script JS específico de la página -->
+
+    <div class="mvv-container">
+        <h2 class="mvv-title">Panadería Grace - Nuestra Filosofía</h2>
+        
+        <div class="mvv-section">
+            <h3 class="mvv-subtitle">NUESTRA MISIÓN</h3>
+            <p class="mvv-text">En nuestra panadería, nos dedicamos a crear con pasión una variedad de pan fresco y artesanal, poniendo siempre el corazón en cada receta. Nuestro compromiso es ofrecer productos de la más alta calidad, cuidando cada detalle para satisfacer a nuestros clientes y sorprenderlos cada día. Creemos que al bienestar de nuestro equipo es esencial, por lo que fomentamos un ambiente de trabajo positivo y colaborativo, donde cada uno pueda crecer y sentirse valorado. Además, nos esforzamos por cuidar y respetar el medio ambiente, utilizando recursos de manera responsable para construir un futuro más sostenible para todos.</p>
+        </div>
+        
+        <div class="mvv-section">
+            <h3 class="mvv-subtitle">NUESTRA VISIÓN</h3>
+            <p class="mvv-text">Ser la panadería líder y más reconocida en nuestra región, destacándonos por la excelencia y la variedad de nuestros productos artesanales. Queremos ser el lugar preferido de nuestros clientes, innovando constantemente y creando sabores únicos que despierten emociones y se conviertan en parte de sus momentos especiales. Nos comprometemos a mantener siempre la más alta calidad, buscando superar las expectativas y ganarnos la confianza y el cariño de quienes nos eligen.</p>
+        </div>
+        
+        <div class="mvv-section">
+            <h3 class="mvv-subtitle">NUESTROS VALORES</h3>
+            <ul class="mvv-list">
+                <li>Calidad</li>
+                <li>Integridad</li>
+                <li>Honestidad</li>
+                <li>Respeto</li>
+                <li>Compromiso</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

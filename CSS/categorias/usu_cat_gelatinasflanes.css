@@ -1,0 +1,72 @@
+/* Estilos generales del cuerpo del documento */
+body {
+    font-family: 'Quicksand', sans-serif; /* Fuente principal */
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf0; /* Fondo claro */
+}
+
+/* Barra superior con logo, título e icono derecho */
+.top-bar {
+    background-color: #b35340; /* Fondo rojo */
+    color: white; /* Texto blanco */
+    padding: 15px; /* Espaciado */
+    text-align: center; /* Centrado */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    position: relative; /* Para posicionar logos */
+}
+
+/* Posicionamiento del logo en la barra superior */
+.logo {
+    position: absolute; /* Posición absoluta para colocar el logo */
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: auto;
+}
+
+/* Posicionamiento del icono derecho en la barra superior */
+.icon-right {
+    position: absolute; /* Posición absoluta para colocar el icono */
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/* Barra de navegación horizontal */
+.nav-bar {
+    display: flex;
+    justify-content: center; /* Centra los enlaces */
+    background-color: #4f4f4f; /* Color de fondo de la barra */
+    padding: 10px;
+}
+
+/* Estilo de los enlaces de navegación */
+.nav-bar a {
+    color: white; /* Color de los enlaces */
+    text-decoration: none; /* Elimina subrayado en los enlaces */
+    padding: 10px 40px;
+    font-size: 18px;
+}
+
+/* Efecto hover en los enlaces de navegación */
+.nav-bar a:hover {
+    background-color: #3d3d3d; /* Fondo al hacer hover */
+    border-radius: 5px;
+}
+
+/* Contenedor principal del contenido */
+.container {
+    text-align: justify;
+    padding: 50px;
+}
+
+/* Estilo del título principal de la página */
+.title-gray {
+    color: #847c84; /* Color del título */
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center; /* Alineación al centro */
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Bake Data</title> <!-- Título de la pestaña -->
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Fuente Quicksand desde Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <link rel="stylesheet" href="/CSS/usu_bakedata.css"> <!-- Enlace al CSS específico de sucursales -->
+    <link rel="stylesheet" href="/CSS/navbar.css"> <!-- Enlace al CSS específico de sucursales -->
+    <link rel="stylesheet" href="/CSS/usu_carrito.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="../JS/usu_carrito.js"></script>
+    <script src="../JS/usu_carrito_fecha_hora.js"></script>
+</head>
+
+<body data-user-loggedin="{{ 'true' if session.get('usu_id') else 'false' }}"
+    data-nombre="{{ session.get('usu_nombre', '') }} {{ session.get('usu_apellido', '') }}"
+    data-correo="{{ session.get('usu_correo', '') }}"
+    >
+
+    <div class="top-bar"> <!-- Barra superior con logo, nombre y icono adicional -->
+        <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a>
+        <!-- Logo Bake Data clicable al inicio -->
+        <a href="/" style="text-decoration:none; color:white;">
+            <span style="font-weight:bold; font-size:24px;">Bake Data</span> <!-- Nombre de la marca en la barra -->
+        </a>
+        <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right">
+        <!-- Icono adicional a la derecha -->
+    </div>
+
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+        <a href="/pedidos_usuario" class="nav-link">Mis pedidos</a>
+            {% endif %}
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" 
+                onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+
+    <div class="carrito-container">
+        <!-- Parte Izquierda: Tabla de Productos -->
+        <div class="carrito-productos">
+            <div class="carrito-header">
+                <h1>Tu Carrito de Compras</h1>
+                <button class="btn-vaciar" id="btnVaciarCarrito">
+                    <i class="fas fa-trash"></i> Vaciar Carrito
+                </button>
+            </div>
+
+            <div class="tabla-container">
+                <table class="tabla-carrito">
+                    <thead>
+                        <tr>
+                            <th class="col-producto">Producto</th>
+                            <th class="col-precio">Precio</th>
+                            <th class="col-cantidad">Cantidad</th>
+                            <th class="col-subtotal">Subtotal</th>
+                            <th class="col-acciones">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-carrito">
+                        <!-- Los productos se cargarán aquí dinámicamente -->
+                        <tr class="carrito-vacio">
+                            <td clistaolspan="5">
+                                <div class="empty-state">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <h3>Tu carrito está vacío</h3>
+                                    <p>Agrega algunos productos deliciosos</p>
+                                    <a href="/realizar_pedido" class="btn-seguir-comprando">Seguir Comprando</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reemplazar la sección .carrito-resumen actual -->
+        <div class="carrito-resumen">
+            <div class="resumen-container" id="resumenContainer">
+                <!-- Estado Normal: Resumen del Carrito -->
+                <div class="resumen-normal" id="resumenNormal">
+                    <h2>Resumen del Pedido</h2>
+
+                    <div class="resumen-detalle">
+                        <div class="resumen-item">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="resumen-item descuento">
+                            <span>Descuento:</span>
+                            <span id="descuento">-$0.00</span>
+                        </div>
+                        <div class="resumen-total">
+                            <strong>Total:</strong>
+                            <strong id="total">$0.00</strong>
+                        </div>
+                    </div>
+
+                    <button class="btn-pagar" id="btnPagar">
+                        <i class="fas fa-bag-shopping"></i>
+                        Confirmar Pedido
+                    </button>
+                    <a href="/realizar_pedido" id="btnSeguirComprandoResumen" class="btn-seguir-activo" style="display: none;">
+                        <i class="fas fa-arrow-left"></i> Seguir Comprando
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Agregar esto antes del cierre del body -->
+    <!-- Modal de Confirmación de Pedido -->
+    <div id="modalPago" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+
+            <div class="product-table">
+                <tr>
+                    <td class="product-image-cell">
+                        <div class="modal-header-section">
+                            <h2 class="product-name">Confirmar Pedido</h2>
+                            <div class="product-description">
+                                Completa los datos para finalizar tu compra
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="modal-form-section">
+                            <form id="formPago" class="form-pedido">
+                                <div class="form-group">
+                                    <div class="form-header">
+                                        <label for="sucursal" class="form-label">
+                                            <i class="fas fa-store"></i> Sucursal de Recogida
+                                        </label>
+                                    </div>
+                                    <select id="sucursal" name="sucursal" required class="form-select">
+                                        <option value="">Selecciona una sucursal</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="form-header">
+                                        <label class="form-label">
+                                            <i class="fas fa-calendar-alt"></i> Fecha y Hora de Recogida
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="datetime-container">
+                                        <div class="date-wrapper">
+                                            <input type="text" id="fecha_recogida" name="fecha_recogida" required class="form-input date-input">
+                                            <span class="input-helper">Mínimo 1 día de anticipación</span>
+                                        </div>
+
+                                        <div class="time-wrapper">
+                                            <select id="hora_recogida" name="hora_recogida" required class="form-select time-select">
+                                                <option value="">Hora</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-header">
+                                        <label for="asunto" class="form-label">
+                                            <i class="fas fa-tag"></i> Asunto del Pedido
+                                        </label>
+                                        <span class="char-count" id="contador-asunto">0/200</span>
+                                    </div>
+                                    <input type="text" id="asunto" name="asunto" maxlength="200"
+                                        placeholder="Ej: Pedido para fiesta de cumpleaños" required class="form-input"
+                                        oninput="actualizarContador(this, 'contador-asunto')">
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-header">
+                                        <label for="comentarios" class="form-label">
+                                            <i class="fas fa-comment"></i> Comentarios Adicionales
+                                        </label>
+                                        <span class="char-count" id="contador-comentarios">0/200</span>
+                                    </div>
+                                    <textarea id="comentarios" name="comentarios" maxlength="200"
+                                        placeholder="Ej: Dedicatoria breve para el pastel, preferencia de empaquetado, rebanado de pan, etc."
+                                        rows="3" class="form-textarea"
+                                        oninput="actualizarContador(this, 'contador-comentarios')"></textarea>
+                                </div>
+
+                                <div class="resumen-final">
+                                    <h3 class="product-description">
+                                        <i class="fas fa-receipt"></i> Resumen del Pedido
+                                    </h3>
+                                    <div class="resumen-items" id="resumenFinalItems">
+                                        </div>
+                                    <div class="total-final">
+                                        <strong>Total a Pagar: <span id="totalFinal" class="product-price">$0.00</span></strong>
+                                    </div>
+                                </div>
+
+                                <div class="modal-actions">
+                                    <button type="button" class="btn-cancelar">
+                                        <i class="fas fa-times"></i> Cancelar
+                                    </button>
+                                    <button type="submit" class="add-to-cart-btn" id="btnConfirmarPedido">
+                                        <i class="fas fa-check"></i> Confirmar Pedido
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

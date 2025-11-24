@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración general, título, icono y estilos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia Sesión - Bake Data</title>
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link rel="stylesheet" href ="/CSS/usu_login.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- Barra superior con logos -->
+    <div class="top-bar">
+        <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a>
+        <a href="/" style="text-decoration:none; color:white;">
+            <span style="font-weight:bold; font-size:24px;">Bake Data</span>
+        </a>
+        <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right">
+    </div>
+
+        <!-- Barra de navegación -->
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+    </div>
+    <!-- CONTENEDOR PRINCIPAL DEL LOGIN -->
+    <!-- Incluye el formulario de inicio de sesión -->
+    <div class="login-container">
+        <h1>Iniciar Sesión</h1>
+        <div id="mensaje-bienvenida" class="welcome-message"></div>
+        <!-- Formulario principal del login -->
+        <form id="loginForm">
+            <!-- Grupo: Usuario -->
+            <div class="input-group">
+                <label for="username">Correo:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <!-- Grupo: Contraseña con botón para mostrar/ocultar -->
+            <div class="input-group">
+                <label for="contraseña">Contraseña:</label>
+                <div class="password-container">
+                    <input type="password" id="contraseña" name="contraseña" required>
+                    <span class="toggle-password" onclick="togglePassword('contraseña')">👁‍🗨</span>
+                </div>
+            </div>
+            <!-- Botón para enviar el formulario -->
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <!-- Enlace alternativo para registrarse -->
+        <p class="register-text">¿No tienes cuenta?</p>
+        <button id="registerButton" onclick="window.location.href='/register'">Registrarse</button>
+        <p id="error-message" class="error-message"></p>
+    </div>
+    <!-- Scripts JS -->
+    <script src="../JS/usu_login.js"></script>
+</body>
+</html>

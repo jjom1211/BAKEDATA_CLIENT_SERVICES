@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucursales - Bake Data</title> <!-- Título de la pestaña -->
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuente Quicksand desde Google Fonts -->
+    <link rel="stylesheet" href="/CSS/usu_sucursales.css"> <!-- Enlace al CSS específico de sucursales -->
+    <link rel="stylesheet" href="/CSS/navbar.css">
+</head>
+<body>
+    
+<div class="top-bar"> <!-- Barra superior con logo, nombre y icono adicional -->
+    <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a> <!-- Logo Bake Data clicable al inicio -->
+    <a href="/" style="text-decoration:none; color:white;">
+        <span style="font-weight:bold; font-size:24px;">Bake Data</span> <!-- Nombre de la marca en la barra -->
+    </a>
+    <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right"> <!-- Icono adicional a la derecha -->
+</div>
+
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+        <a href="/pedidos_usuario" class="nav-link">Mis pedidos</a>
+            {% endif %}
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" 
+                onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+    
+    
+    
+    <div class="container"> <!-- Contenedor principal de contenido -->
+        <h1 class="title-gray">Nuestras Sucursales</h1> <!-- Título de la sección -->
+        
+        <div class="branches-section"> <!-- Sección que contiene todas las sucursales -->
+            <div class="branch-card"> <!-- Tarjeta de sucursal individual -->
+                <img src="/static/img/sucursales/s1_piramides.jpg" alt="Sucursal 1"> <!-- Imagen de la sucursal -->
+                <h3>Grace Piramides</h3> <!-- Nombre de la sucursal -->
+                <p><strong>Dirección:</strong> Av. Pirámide de la Luna 279, Fracc. Pirámides, El Pueblito, Corregidora, Querétaro.</p> <!-- Dirección -->
+                <a class="map-btn" href="https://www.google.com/maps/@20.5418019,-100.4526088,3a,75y,141.53h,79.04t/data=!3m7!1e1!3m5!1sZAd9w3ir12oiU5mqSAD1dg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D10.959999999999994%26panoid%3DZAd9w3ir12oiU5mqSAD1dg%26yaw%3D141.53!7i16384!8i8192?entry=ttu" target="_blank">Ver en Google Maps</a>
+            </div>
+            
+            <div class="branch-card"> <!-- Tarjeta de sucursal individual -->
+                <img src="/static/img/sucursales/s2_santuarios.jpg" alt="Sucursal 2"> <!-- Imagen de la sucursal -->
+                <h3>Grace Santuarios</h3> <!-- Nombre de la sucursal -->
+                <p><strong>Dirección:</strong> Andamaxei 19, Santuarios Residencial, CP 76900, El Pueblito, Querétaro.</p> <!-- Dirección -->
+                <a class="map-btn" href="https://www.google.com.mx/maps/place/Panader%C3%ADa+y+Reposter%C3%ADa+Grace+%EF%B8%8F/@20.5536693,-100.4480573,3a,75y,271.72h,77.36t/data=!3m7!1e1!3m5!1sPxOzPeNrhStfOpqQf-2NjQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D12.64%26panoid%3DPxOzPeNrhStfOpqQf-2NjQ%26yaw%3D271.72!7i16384!8i8192" target="_blank">Ver en Google Maps</a>
+            </div>
+            
+            <div class="branch-card"> <!-- Tarjeta de sucursal individual -->
+                <img src="/static/img/sucursales/s3_puertareal.jpg" alt="Sucursal 3"> <!-- Imagen de la sucursal -->
+                <h3>Grace Puerta Real</h3> <!-- Nombre de la sucursal -->
+                <p><strong>Dirección:</strong> Miguel Hidalgo 149. Fracc. Puerta Real, CP 76900, El Pueblito, Querétaro.</p> <!-- Dirección -->
+                <a class="map-btn" href="https://www.google.com.mx/maps/place/Grace+Panader%C3%ADa+y+Reposter%C3%ADa/@20.5579386,-100.4333949,3a,75y,241.12h,59.12t/data=!3m7!1e1!3m5!1s8vBQod0-Qr1gOhcdvg6ZCA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D30.880000000000003%26panoid%3D8vBQod0-Qr1gOhcdvg6ZCA%26yaw%3D241.12!7i16384!8i8192" target="_blank">Ver en Google Maps</a>
+            </div>
+            
+            <div class="branch-card"> <!-- Tarjeta de sucursal individual -->
+                <img src="/static/img/sucursales/s4_paseos.jpg" alt="Sucursal 4"> <!-- Imagen de la sucursal -->
+                <h3>Grace Paseos de Bosque</h3> <!-- Nombre de la sucursal -->
+                <p><strong>Dirección:</strong> Av. Santuario de Guadalupe 1101, Santuarios del Cerrito, Santuarios Residencial, CP 7600, El Pueblito, Corregidora, Querétaro.</p> <!-- Dirección -->
+                <a class="map-btn" href="https://www.google.com.mx/maps/@20.5565958,-100.4499079,3a,75y,190.12h,88.49t/data=!3m7!1e1!3m5!1ssC8u-g5l-w9X8wZZr3SMIg!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D1.5100000000000051%26panoid%3DsC8u-g5l-w9X8wZZr3SMIg%26yaw%3D190.12!7i16384!8i8192?entry=ttu" target="_blank">Ver en Google Maps</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

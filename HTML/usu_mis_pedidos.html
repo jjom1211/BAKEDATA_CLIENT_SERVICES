@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pedidos - Bake Data</title>
+    <link rel="icon" href="/static/img/logos/logo_BAKEDATA.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/CSS/usu_bakedata.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <link rel="stylesheet" href="/CSS/usu_mis_pedidos.css"> </head>
+<body>
+
+    <div class="top-bar">
+        <a href="/"><img src="/static/img/logos/logo_BAKEDATA.png" alt="Logo Bake Data" class="logo"></a>
+        <a href="/" style="text-decoration:none; color:white;">
+            <span style="font-weight:bold; font-size:24px;">Bake Data</span>
+        </a>
+        <img src="/static/img/logos/logo_GRACE.png" alt="Icono adicional" class="icon-right">
+    </div>
+
+    <div class="nav-bar">
+        <a href="/realizar_pedido" class="nav-link">Realizar Pedido</a>
+        <a href="/sucursales" class="nav-link">Sucursales</a>
+        <a href="/conocenos" class="nav-link">Conócenos</a>
+        {% if session['usu_id'] %}
+            <a href="/pedidos_usuario" class="nav-link" style="background-color: #3d3d3d; border-radius: 5px;">Mis pedidos</a>
+        {% endif %}
+        
+        {% if session['usu_id'] %}
+        <a href="/logout" class="login-button">
+            <span class="btn-text">Cerrar Sesión</span>
+            <img src="/static/img/login/logout.svg" alt="Cerrar Sesión" class="login-icon" onerror="this.src='/static/img/login/login.png'"> 
+        </a>
+        {% else %}
+        <a href="/login" class="login-button">
+            <span class="btn-text">Iniciar Sesión</span>
+            <img src="/static/img/login/login.png" alt="Iniciar Sesión" class="login-icon">
+        </a>
+        {% endif %}
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Historial de Pedidos</h1>
+        </div>
+
+        <div id="loadingState" style="text-align: center; padding: 50px;">
+            <i class="fas fa-spinner fa-spin" style="font-size: 40px; color: #b35340;"></i>
+            <p style="margin-top: 15px; color: #666;">Cargando tus pedidos...</p>
+        </div>
+
+        <div id="ordersGrid" class="orders-grid"></div>
+        
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="fas fa-cookie-bite empty-icon"></i>
+            <h2>Aún no has realizado pedidos</h2>
+            <p>¡Deliciosos panes y pasteles te están esperando!</p>
+            <a href="/realizar_pedido" class="btn-start-shopping">Realizar mi primer pedido</a>
+        </div>
+    </div>
+
+    <script src="../JS/usu_mis_pedidos.js"></script>
+</body>
+</html>

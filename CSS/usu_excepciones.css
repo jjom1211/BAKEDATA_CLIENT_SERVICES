@@ -1,0 +1,91 @@
+/* Reset básico y estilos generales */
+html, body {
+    height: 100%; /* Asegura que el cuerpo ocupe el 100% de la altura de la pantalla */
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif; /* Fuente principal */
+    background-color: #fffaf0; /* Fondo claro */
+    color: #4f4f4f; /* Color de texto gris para mayor contraste */
+    overflow: hidden; /* Evita el desbordamiento horizontal */
+}
+
+/* Barra superior con logo y título */
+.top-bar {
+    background-color: #b35340; /* Color de fondo de la barra superior */
+    color: white; /* Color del texto */
+    padding: 15px; /* Espaciado alrededor del contenido */
+    text-align: center; /* Centra el texto dentro de la barra */
+    font-size: 24px; /* Tamaño de fuente del texto */
+    font-weight: bold; /* Negrita en el texto */
+    position: relative; /* Permite posicionar el logo de manera absoluta */
+}
+
+/* Línea decorativa gruesa */
+.separator-line {
+    height: 14px;  /* Altura de la línea */
+    background-color: #b35340; /* Color de la línea */
+    margin: 0; /* Elimina los márgenes */
+    border: none; /* Elimina el borde */
+}
+
+/* Línea decorativa delgada */
+.gray-line {
+    height: 5px; /* Altura de la línea */
+    background-color: #4f4f4f; /* Color de la línea */
+    margin: 0; /* Elimina los márgenes */
+    border: none; /* Elimina el borde */
+}
+
+/* Estilos para el logo en la barra superior */
+.logo {
+    position: absolute; /* Posición absoluta para colocar el logo */
+    top: 10px; /* Distancia desde la parte superior */
+    left: 10px; /* Distancia desde la parte izquierda */
+    width: 50px; /* Ancho del logo */
+    height: auto; /* Mantiene la proporción del icono */
+}
+
+/* Estilos para el icono derecho en la barra */
+.icon-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+}
+
+/* Contenedor principal del mensaje de error */
+.error-container {
+    display: flex; /* Usamos flexbox para centrar el contenido */
+    flex-direction: column; /* Organiza los elementos de manera vertical */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    height: calc(100% - 38px - 5px); /* Ajusta la altura disponible */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+/* Estilos para la imagen de error */
+.error-image {
+    width: 40vh; /* La imagen ocupa el 40% de la altura del viewport */
+    max-width: 100%; /* La imagen no excederá el 100% de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+/* Estilos para el título del error */
+.error-title {
+    font-size: 2rem; /* Tamaño de fuente del título */
+    font-weight: 700; /* Negrita en el título */
+    color: #b35340; /* Color del título */
+    margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+/* Estilos para el mensaje descriptivo */
+.error-message {
+    font-size: 1.1rem; /* Tamaño de fuente del mensaje */
+    line-height: 1.4; /* Altura de línea para mayor legibilidad */
+    margin-bottom: 5px; /* Espacio debajo del mensaje */
+    max-width: 90%; /* Limita el ancho del mensaje */
+}

@@ -72,8 +72,11 @@ body {
 }
 
 .status-pending { background-color: #fff3cd; color: #856404; }
-.status-completed { background-color: #d4edda; color: #155724; }
+.status-completed { background-color: #ee7ff0ff; color: #490b4aff; }
 .status-canceled { background-color: #f8d7da; color: #721c24; }
+.status-solved { background-color: #d4edda; color: #155724; }
+.status-arrived{ background-color: #d1ecf1; color: #0c5460; }
+
 
 /* Cuerpo de la tarjeta */
 .card-body {

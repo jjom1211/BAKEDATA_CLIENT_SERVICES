@@ -710,8 +710,8 @@ def getCategorias(categoria):
             cursor.execute(sql, tuple(lista_busqueda))
             productos = cursor.fetchall()
             productos_validos = []
-            productos_validos = productos # Temporalmente deshabilitado el filtro de imágenes
-            """ 
+            #productos_validos = productos # Temporalmente deshabilitado el filtro de imágenes
+            
             # Asumimos que tu carpeta static está en la raíz donde corre el script
             # Si usas una estructura diferente, ajusta la ruta base.
             static_folder = os.path.join(app.root_path, 'static')
@@ -728,7 +728,7 @@ def getCategorias(categoria):
                 else:
                     # Si no existe, lo ignoramos (esto evita el error 404 en el frontend)
                     print(f"Omitiendo producto {prod['pro_id']} - Imagen no encontrada en: {ruta_absoluta}")
-            """
+            
             return jsonify(productos_validos), 200
     finally:
         conn.close()

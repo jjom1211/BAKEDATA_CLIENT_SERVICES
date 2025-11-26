@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             pickupElement.textContent = "Por definir en sucursal";
         }
         // --- ESTADOS Y COLORES (Tu lógica existente) ---
-        const estados = { 'P': 'Pendiente', 'C': 'Completado', 'X': 'Cancelado', 'R': 'En Reparto' };
+        const estados = { 'P': 'Pendiente', 'C': 'En tienda', 'X': 'Cancelado', 'R': 'En Reparto', 'E': 'Entregado' };
         const estadoTexto = estados[pedido.ped_estado_pedido] || pedido.ped_estado_pedido;
         const estadoElement = document.getElementById('orderStatus');
         estadoElement.textContent = estadoTexto;
@@ -67,9 +67,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         // margin: 0 auto 20px auto centra la caja y le da espacio abajo
         const estiloBaseAviso = "max-width: 550px; margin: 0 auto 25px auto; padding: 15px 20px; border-radius: 12px; display: flex; gap: 15px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);";
 
-        // CASO 1: COMPLETADO ('C') -> VERDE
+        // CASO 1: COMPLETADO ('C') -> MORADO
         if (pedido.ped_estado_pedido === 'C') {
             labelTotal.textContent = 'Total Pagado';
+            labelTotal.style.color = '#490b4aff';
+            amountTotal.style.color = '#490b4aff';
+            estadoElement.style.color = '#490b4aff';
+            
+            avisoHTML = `
+                <div style="${estiloBaseAviso} background-color: #ee7ff0ff; color: #490b4aff; border-left: 6px solid #79187aff;">
+                    <i class="fas fa-check-circle" style="font-size: 24px;"></i>
+                    <div>
+                        <strong style="font-size:1.1em;">¡El Pedido ya esta listo para que lo recojas!</strong><br>
+                        <span style="font-size:0.9em;">Te estamos esperando.</span>
+                    </div>
+                </div>
+            `;
+
+        // CASO 2: ENTREGADO ('E') -> VERDE
+        }
+        else if (pedido.ped_estado_pedido === 'E') {
+            labelTotal.textContent = 'Total a pagar';
             labelTotal.style.color = '#28a745';
             amountTotal.style.color = '#28a745';
             estadoElement.style.color = '#28a745';
@@ -84,14 +102,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             `;
 
-        // CASO 2: CANCELADO ('X') -> ROJO
-        } else if (pedido.ped_estado_pedido === 'X') {
+        // CASO 3: CANCELADO ('X') -> ROJO
+        }
+        else if (pedido.ped_estado_pedido === 'X') {
             labelTotal.textContent = 'Total (Cancelado)';
             labelTotal.style.color = '#dc3545';
             amountTotal.style.color = '#dc3545';
             estadoElement.style.color = '#dc3545';
 
-        // CASO 3: EN REPARTO ('R') -> AZUL
+        // CASO 4: EN REPARTO ('R') -> AZUL
         } else if (pedido.ped_estado_pedido === 'R') {
             labelTotal.textContent = 'Total a Pagar'; 
             estadoElement.style.color = '#17a2b8'; 
@@ -106,7 +125,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             `;
 
-        // CASO 4: PENDIENTE ('P') -> AMARILLO (Default)
+        // CASO 5: PENDIENTE ('P') -> AMARILLO (Default)
         } else {
             labelTotal.textContent = 'Total a Pagar';
             estadoElement.style.color = '#e67e22'; 

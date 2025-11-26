@@ -13,7 +13,7 @@ app.config['SESSION_COOKIE_NAME'] = 'session_usuario_grace'
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'bakedata',
+    'password': 'Bakedata',
     'db': 'mydb'
 }
 

@@ -61,9 +61,10 @@ async function cargarPedidos() {
 function obtenerInfoEstado(estado) {
     switch(estado) {
         case 'P': return { texto: 'Pendiente', clase: 'status-pending' };
-        case 'X': return { texto: 'Entregado', clase: 'status-canceled' };
-        case 'C': return { texto: 'Completado', clase: 'status-completed' };
-        case 'R': return { texto: 'En reparto', clase: 'status-pending' };
+        case 'X': return { texto: 'Cancelado', clase: 'status-canceled' };
+        case 'C': return { texto: 'En tienda', clase: 'status-completed' };
+        case 'R': return { texto: 'En reparto', clase: 'status-arrived' };
+        case 'E': return { texto: 'Entregado', clase: 'status-solved' };
         default:  return { texto: estado, clase: '' };
     }
 }

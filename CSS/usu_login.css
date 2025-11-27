@@ -176,6 +176,89 @@ button[type="submit"]:hover {
     }
 }
 
+
+/* =========================================
+   ESTILOS PARA MÓVILES - LOGIN
+   (Agregar al final del archivo CSS)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. CABECERA Y NAVEGACIÓN (Estándar para todo el sitio) */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .logo, .icon-right {
+        position: static;
+        margin: 10px 0;
+        width: 70px;
+    }
+
+    .top-bar a:first-child { order: 1; }
+    .top-bar a:nth-child(2) { order: 2; margin: 5px 0; }
+    .icon-right { order: 3; }
+
+    /* Ajuste de navegación si no se carga desde navbar.css */
+    .nav-bar {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    .nav-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-sizing: border-box;
+    }
+
+    /* 2. CONTENEDOR DEL LOGIN */
+    .login-container {
+        /* Reducimos drásticamente el margen superior para que el teclado no tape todo */
+        margin: 30px auto; 
+        width: 90%;          /* Usar casi todo el ancho */
+        padding: 20px;       /* Menos padding interno */
+        box-sizing: border-box;
+    }
+
+    .login-container h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    /* 3. CAMPOS DE TEXTO (INPUTS) */
+    input[type="text"],
+    input[type="password"] {
+        height: 50px;       /* Campos más altos para dedos táctiles */
+        font-size: 16px;    /* IMPORTANTE: 16px evita que el iPhone haga zoom automático */
+    }
+
+    /* 4. OJO DE CONTRASEÑA (Toggle) */
+    .toggle-password {
+        /* Aumentar el área táctil del ojito */
+        padding: 10px; 
+        right: 5px;
+        font-size: 20px;
+    }
+
+    /* 5. BOTONES */
+    .login-container button {
+        padding: 15px;      /* Botones más "gorditos" fáciles de tocar */
+        font-size: 1.1rem;
+    }
+
+    .register-text {
+        margin-top: 20px;
+    }
+}
+
 .welcome-message {
     min-height: 20px; /* Reserva el espacio para que no "brinque" */
     margin-bottom: 15px;

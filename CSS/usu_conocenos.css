@@ -264,76 +264,131 @@ p {
     font-weight: bold; /* Los valores en negrita para que resalten */
 }
 
+/* =========================================
+   CORRECCIONES PARA MÓVILES - CONÓCENOS
+   (Pegar al final del archivo CSS)
+   ========================================= */
 
-/* Media queries para diseño responsivo */
 @media (max-width: 768px) {
+
+    /* 1. ARREGLO DE LA BARRA SUPERIOR (Igual que en las otras páginas) */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    .logo, .icon-right {
+        position: static; /* Quitamos la posición absoluta */
+        margin: 10px 0;
+        width: 70px; /* Un poco más grandes para que luzcan */
+    }
+
+    /* Orden: Logo -> Título -> Icono */
+    .top-bar a:first-child { order: 1; }
+    .top-bar a:nth-child(2) { order: 2; margin: 5px 0; }
+    .icon-right { order: 3; }
+
+    /* 2. MENÚ DE NAVEGACIÓN VERTICAL */
+    .nav-bar {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .nav-bar a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 16px; 
+    }
+
+    /* 3. SECCIÓN PRINCIPAL (Imagen y Texto) */
     .split-container {
-        flex-direction: column; /* Cambia la dirección del contenedor en pantallas pequeñas */
+        flex-direction: column; /* Apilar verticalmente */
         min-height: auto;
     }
-    .image-side, .text-side {
-        width: 100%; /* Hace que ambas secciones ocupen todo el ancho */
-    }
+
     .image-side {
-        padding: 10px;
-        height: 300px;
-    }
-    .image-side img {
-        max-height: 280px; /* Limita la altura de la imagen en pantallas pequeñas */
-    }
-    .text-side {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 36px; /* Reduce el tamaño del título en pantallas pequeñas */
-    }
-    p {
-        font-size: 20px;
-        text-align: left; /* Alinea el texto a la izquierda */
-    }
-    .contact-title {
-        font-size: 28px;
-    }
-    .phone-number {
-        font-size: 24px;
-    }
-    .whatsapp-link a {
-        font-size: 18px;
-        padding: 10px 16px;
-    }
-    .whatsapp-link img {
-        width: 24px;
-    }
-    .facebook-link a {
-        font-size: 18px;
-        padding: 10px 16px;
-    }
-    .facebook-link img {
-        width: 24px;
-    }
-    .nav-bar a {
-        padding: 10px 15px;
-        font-size: 16px;
+        width: 100%;
+        height: auto; /* Dejar que la caja crezca lo necesario */
+        padding: 0;
+        background-color: transparent; /* Quitamos fondo por si acaso */
     }
 
-    /* Estilos de MVV para móviles (colocados correctamente aquí) */
-    .mvv-container {
-        width: 90%; /* En móviles, se reduce el margen para aprovechar el espacio */
-        margin: 30px auto;
-        padding: 15px;
+    .image-side img {
+        width: 100%;         /* Ancho total del celular */
+        height: auto;        /* IMPORTANTE: La altura se calcula sola para no deformar */
+        max-height: none;    /* Quitamos el límite de 250px que causaba el recorte */
+        object-fit: contain; /* Asegura que se vea TODO el contenido de la imagen */
+        display: block;      /* Evita un pequeño espacio en blanco debajo de la imagen */
+        border-radius: 0;    /* Quitamos bordes redondos si es un banner publicitario */
     }
-    .mvv-title {
-        font-size: 30px;
+
+    .text-side {
+        width: 100%;
+        padding: 25px 20px;
     }
-    .mvv-subtitle {
-        font-size: 24px;
+
+    /* 4. AJUSTE DE TIPOGRAFÍA (Hacerla legible en móvil) */
+    h1 {
+        font-size: 28px; /* Bajamos de 42px a 28px */
+        text-align: center; /* Centrar título */
+        margin-bottom: 15px;
     }
-    .mvv-text {
+
+    p {
+        font-size: 16px; /* Bajamos de 24px a 16px (estándar móvil) */
+        line-height: 1.6;
+        text-align: justify; /* Mantener justificado o cambiar a left si prefieres */
+    }
+
+    /* 5. BOTONES DE CONTACTO */
+    .contact-title {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
+    .phone-number {
+        font-size: 20px;
+    }
+
+    /* Botones anchos y fáciles de tocar */
+    .whatsapp-link a, 
+    .facebook-link a {
+        width: 100%;
+        justify-content: center; /* Centrar contenido del botón */
+        box-sizing: border-box; /* Para que el padding no rompa el ancho */
+        margin-bottom: 10px;
         font-size: 18px;
-        text-align: left;
     }
-    .mvv-list li {
-        font-size: 18px; /* También ajustado para móviles */
+
+    /* 6. SECCIÓN MISIÓN / VISIÓN / VALORES */
+    .mvv-container {
+        width: 90%; /* Más ancho en móvil */
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .mvv-title {
+        font-size: 24px;
+        border-bottom-width: 2px;
+    }
+
+    .mvv-subtitle {
+        font-size: 20px;
+    }
+
+    .mvv-text, .mvv-list li {
+        font-size: 16px; /* Texto legible estándar */
+        text-align: left; /* En móvil se lee mejor alineado a la izquierda */
+    }
+    
+    .mvv-list {
+        text-align: center; /* Pero la lista de valores se ve bien centrada */
     }
 }
-

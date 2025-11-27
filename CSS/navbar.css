@@ -73,3 +73,47 @@
 .nav-bar .login-button:hover .login-icon {
     transform: scale(1.15);
 }
+
+/* =========================================
+   ESTILOS RESPONSIVOS PARA LA BARRA DE NAVEGACIÓN
+   (Agregar al final de navbar.css)
+   ========================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Contenedor principal: Cambia de Fila a Columna */
+    .nav-bar {
+        flex-direction: column; /* Apila los elementos uno sobre otro */
+        padding: 0;             /* Quitamos el padding del contenedor para usar todo el ancho */
+        width: 100%;
+    }
+
+    /* 2. Enlaces comunes (Realizar Pedido, Sucursales, etc) */
+    .nav-link, 
+    .nav-bar a:not(.login-button) { /* Excluimos el botón de login para tratarlo aparte si se requiere */
+        display: block;         /* Comportamiento de bloque */
+        width: 100%;            /* Ancho total */
+        text-align: center;     /* Texto centrado */
+        padding: 15px 0;        /* Padding vertical para que el dedo atine bien */
+        margin: 0;              /* Sin márgenes laterales */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+        box-sizing: border-box;
+    }
+
+    /* 3. Botón de Iniciar Sesión / Cerrar Sesión */
+    .nav-bar .login-button {
+        margin-left: 0;         /* IMPORTANTE: Quitamos el empuje a la derecha */
+        margin-top: 0;          /* Pegado al anterior */
+        width: 100%;            /* Ancho total */
+        justify-content: center; /* Centrar contenido (icono y texto) */
+        padding: 15px 0;        /* Mismo tamaño que los otros */
+        background-color: rgba(0, 0, 0, 0.2); /* Un fondo un poco más oscuro para diferenciarlo */
+        border-radius: 0;       /* Quitamos bordes redondos para que encaje en la lista */
+    }
+
+    /* Opcional: Cambiar color al presionar en móvil */
+    .nav-link:active, 
+    .nav-bar .login-button:active {
+        background-color: #b35340; /* Color rojo de la marca al tocar */
+    }
+}

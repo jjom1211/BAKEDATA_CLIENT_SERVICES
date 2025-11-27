@@ -499,26 +499,138 @@ body {
 }
 
 /* Responsive */
+/* =========================================
+   ESTILOS PARA MÓVILES - CATEGORÍAS
+   (Agregar al final del CSS)
+   ========================================= */
+
 @media (max-width: 768px) {
-    .carrito-flotante {
-        bottom: 20px;
-        right: 20px;
+
+    /* 1. BARRA SUPERIOR Y NAVEGACIÓN (Igual que en el home) */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding-bottom: 20px;
     }
-    
-    .btn-carrito-flotante {
+
+    .logo, .icon-right {
+        position: static;
+        margin: 10px 0;
         width: 60px;
-        height: 60px;
     }
     
-    .carrito-svg {
-        width: 24px;
-        height: 24px;
+    /* Reordenar elementos */
+    .top-bar a:first-child { order: 1; }
+    .top-bar a:nth-child(2) { order: 2; margin: 5px 0; }
+    .icon-right { order: 3; }
+
+    .nav-bar {
+        flex-direction: column;
+        padding: 0;
     }
+
+    .nav-bar a {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-sizing: border-box;
+    }
+
+    /* 2. CONTENEDOR PRINCIPAL */
+    .container {
+        padding: 15px; /* Reducimos el padding de 50px a 15px para ganar espacio */
+    }
+
+    .title-gray {
+        font-size: 1.8rem; /* Título un poco más pequeño */
+        margin-top: 10px;
+    }
+
+    /* 3. GRILLA DE PRODUCTOS */
+    .productosContainer {
+        /* Forzamos una columna que ocupe el ancho disponible pero respetando márgenes */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .productoItem {
+        /* Aseguramos que la tarjeta no sea más ancha que la pantalla */
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    .productoItem img {
+        height: 200px; /* Reducimos un poco la altura de la imagen */
+    }
+
+    /* 4. REPARACIÓN CRÍTICA DEL MODAL (Tabla a Bloques) */
+    .modal-content {
+        width: 95%; /* Que ocupe casi toda la pantalla */
+        margin: 10% auto;
+        max-height: 80vh; /* Evitar que sea más alto que la pantalla */
+        overflow-y: auto; /* Permitir scroll dentro del modal si es muy alto */
+    }
+
+    /* Aquí está la magia: Convertimos la tabla en bloques apilados */
+    .product-table, 
+    .product-table tbody, 
+    .product-table tr, 
+    .product-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .product-table tr {
+        margin-bottom: 10px; /* Espacio entre "filas" */
+    }
+
+    .product-table td {
+        padding: 10px;
+        text-align: center; /* Centrar todo el contenido */
+    }
+
+    /* Celda de la imagen en el modal */
+    .product-image-cell {
+        width: 100%;
+        background: transparent; /* Quitar gradiente si molesta, o dejarlo */
+        padding: 10px;
+    }
+
+    .product-image {
+        max-width: 180px; /* Imagen más pequeña para que quepa todo */
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Textos del modal */
+    .product-name { font-size: 1.5rem; margin-bottom: 5px; }
+    .product-price { font-size: 1.3rem; margin: 10px 0; }
+    .product-description { font-size: 1rem; }
     
-    .contador-flotante {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
+    /* Controles de cantidad y botón */
+    .product-quantity {
+        justify-content: center; /* Centrar el input */
+        margin-bottom: 15px;
+    }
+
+    .add-to-cart-btn {
+        width: 100%; /* Botón ancho fácil de presionar */
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    /* 5. BOTÓN VOLVER */
+    .navegacion-superior {
+        justify-content: center; /* Centrar el botón de volver */
+        margin-top: 15px;
     }
 }
 /* Contenedor para separar y alinear */

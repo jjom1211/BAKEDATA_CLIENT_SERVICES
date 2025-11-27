@@ -570,3 +570,78 @@ body {
         font-size: 10px;
     }
 }
+
+/* =========================================
+   ESTILOS PARA MÓVILES (Agregar al final del CSS)
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. ARREGLO DE LA BARRA SUPERIOR (TOP-BAR) */
+    .top-bar {
+        display: flex;
+        flex-direction: column; /* Apilar elementos verticalmente */
+        align-items: center;
+        justify-content: center;
+        height: auto; /* Quitar altura fija si la hubiera */
+        padding-bottom: 20px;
+    }
+
+    .logo, .icon-right {
+        position: static; /* Quitar la posición absoluta para que no floten */
+        margin: 10px 0;   /* Darles espacio */
+        width: 60px;      /* Hacerlos un poco más visibles */
+    }
+
+    /* Ordenar visualmente: Logo arriba, Texto en medio, Icono abajo */
+    .top-bar a:first-child { order: 1; } /* Logo */
+    .top-bar a:nth-child(2) { order: 2; margin: 10px 0; } /* Texto Bake Data */
+    .icon-right { order: 3; }
+
+    /* 2. ARREGLO DE LA BARRA DE NAVEGACIÓN */
+    .nav-bar {
+        display: flex;
+        flex-direction: column; /* Menú en lista vertical para dedos táctiles */
+        width: 100%;
+        padding: 0;
+    }
+
+    .nav-bar a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        text-align: center;
+        width: 100%; /* Botones anchos fáciles de tocar */
+        box-sizing: border-box;
+    }
+
+    /* 3. ARREGLO DE LAS CATEGORÍAS (GRID) */
+    .categories-grid {
+        /* Cambiamos el mínimo de 350px a 280px para que quepan en celulares estrechos */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .category-card {
+        margin: 0 auto; /* Centrar tarjetas */
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* 4. AJUSTES GENERALES DE ESPACIADO */
+    .container {
+        padding: 20px; /* Reducir padding de 50px a 20px para ganar espacio */
+    }
+
+    .welcome-title {
+        font-size: 2rem; /* Título más pequeño */
+    }
+    
+    /* Carruseles (si los usas) */
+    .carousel-container {
+        width: 100vw; /* Ancho completo de la pantalla */
+        margin-left: -20px; /* Contrarrestar el padding del container */
+        padding-left: 20px;
+    }
+}

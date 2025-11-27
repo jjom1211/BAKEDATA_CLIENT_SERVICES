@@ -285,31 +285,94 @@ body {
     outline: none;
     box-shadow: 0 0 0 3px rgba(179, 83, 64, 0.3);
 }
+/* =========================================
+   ESTILOS PARA MÓVILES - REALIZAR PEDIDO
+   (Agregar al final del archivo CSS)
+   ========================================= */
 
-/* Estilos responsivos */
 @media (max-width: 768px) {
-    .categories-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+
+    /* 1. CABECERA (Standardización con otras páginas) */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding-bottom: 20px;
     }
-    
-    .categories-title {
+
+    .logo, .icon-right {
+        position: static; /* Dejan de flotar */
+        margin: 10px 0;
+        width: 70px;
+    }
+
+    /* Ordenar elementos visualmente */
+    .top-bar a:first-child { order: 1; }
+    .top-bar a:nth-child(2) { order: 2; margin: 5px 0; }
+    .icon-right { order: 3; }
+
+    /* 2. AJUSTES DE CONTENEDOR Y TÍTULOS */
+    .container {
+        padding: 20px 15px; /* Reducimos el padding lateral drásticamente */
+    }
+
+    .title-gray {
         font-size: 2rem;
+        margin-bottom: 15px;
     }
-    
-    .comments-section {
-        padding: 20px;
-        margin: 30px 0;
+
+    /* Mensaje de alerta (Pickup) */
+    .info-message {
+        font-size: 0.95rem; /* Texto un poco más pequeño */
+        padding: 15px;
+        margin: 15px 0;
     }
-    
-    .comments-title {
-        font-size: 1.5rem;
-    }
-    
-    .submit-order-btn {
-        padding: 15px 40px;
+
+    .select-product-text {
         font-size: 1.2rem;
+        margin: 20px 0;
+    }
+
+    /* 3. ARREGLO DE LA GRID DE CATEGORÍAS */
+    .categories-section {
+        padding: 10px 0;
+    }
+
+    .categories-grid {
+        /* CAMBIO CLAVE: Bajamos el mínimo de 350px a 280px */
+        /* Esto permite que quepan en celulares estrechos sin scroll horizontal */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px;
+        padding: 0 10px; /* Un poco de margen lateral para que no toque los bordes */
+    }
+
+    .category-card {
+        margin: 0 auto; /* Centrar tarjeta si queda espacio libre */
         width: 100%;
+        max-width: 400px; /* Tope máximo para que no se vea gigante en tablets */
+    }
+
+    /* Ajustar altura de imagen para que se vea más contenido */
+    .category-image {
+        height: 180px; 
+    }
+
+    .category-name {
+        font-size: 1.4rem;
+    }
+
+    /* 4. BOTÓN DE VER CARRITO (Estilo Pastilla) */
+    .container-btn-carrito {
+        margin: 15px 0;
+    }
+
+    .btn-ver-carrito {
+        width: 100%;         /* Botón ancho fácil de presionar */
+        justify-content: center;
+        padding: 15px;
+        box-sizing: border-box;
     }
 }
 

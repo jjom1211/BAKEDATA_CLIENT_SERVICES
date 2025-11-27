@@ -752,4 +752,5 @@ def categorias_css(filename):
     return send_from_directory('CSS/categorias', filename)
 
 if __name__ == '__main__':
-    app.run(port=8888,debug=True)
+    #app.run(host 'ip' ,  port = 5555, debug = true)
+    app.run(host= '0.0.0.0' ,port=8888,debug=True)
